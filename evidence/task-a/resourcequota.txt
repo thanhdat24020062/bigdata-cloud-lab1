@@ -1,2 +1,0 @@
-NAME          REQUEST                                                                                                       LIMIT                                   AGE
-team-budget   persistentvolumeclaims: 0/2, pods: 0/10, requests.cpu: 0/2, requests.memory: 0/2Gi, requests.storage: 0/8Gi   limits.cpu: 0/4, limits.memory: 0/4Gi   3h56m

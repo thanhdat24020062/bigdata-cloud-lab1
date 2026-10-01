@@ -1,2 +1,0 @@
-NAME                   POD-SELECTOR   AGE
-private-object-store   app=objects    3h56m

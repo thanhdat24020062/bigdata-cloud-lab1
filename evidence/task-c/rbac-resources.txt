@@ -1,0 +1,9 @@
+NAME                                      CREATED AT
+role.rbac.authorization.k8s.io/observer   2026-10-01T19:38:15Z
+
+NAME                                             ROLE            AGE
+rolebinding.rbac.authorization.k8s.io/observer   Role/observer   48m
+
+NAME                      AGE
+serviceaccount/default    4h7m
+serviceaccount/observer   3h56m

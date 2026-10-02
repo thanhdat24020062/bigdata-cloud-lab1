@@ -1,0 +1,1 @@
+Error from server (Forbidden): pods is forbidden: User "system:serviceaccount:bd-g05:observer" cannot create resource "pods" in API group "" in the namespace "bd-g05"

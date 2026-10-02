@@ -1,0 +1,1 @@
+{"bucket": "research-release", "bytes": 0, "error": "AccessDenied", "http": 403, "key": "fixture.txt", "ms": 94.30738000082783, "ok": false, "op": "get", "principal": "ingestor", "request_id": "18DAAC929EEF508A6FD267C0", "utc": "2026-10-02T09:32:27.569587+00:00"}

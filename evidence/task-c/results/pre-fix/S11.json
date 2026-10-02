@@ -1,0 +1,1 @@
+{"bucket": "research-raw", "bytes": 0, "error": null, "http": 200, "key": "", "keys": ["delete-probe.txt", "fixture.txt", "raw/s01.txt"], "ms": 14.5539400036796, "ok": true, "op": "list", "principal": "analyst", "request_id": "18DAAC989B374B06AE28ACD3", "utc": "2026-10-02T09:32:53.277484+00:00"}

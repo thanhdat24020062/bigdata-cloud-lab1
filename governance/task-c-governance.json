@@ -1,0 +1,20 @@
+[
+  {
+    "bucket": "research-raw",
+    "classification": "synthetic-restricted",
+    "purpose": "lab ingestion",
+    "retention": "assessment completion + 7 days",
+    "retention_enforced": false,
+    "access_policy": "bucket-scoped roles",
+    "verified_tests": ["S01", "S02", "S03", "S10", "S11"]
+  },
+  {
+    "bucket": "research-release",
+    "classification": "synthetic-approved-release",
+    "purpose": "approved analyst reads",
+    "retention": "assessment completion + 7 days",
+    "retention_enforced": false,
+    "access_policy": "bucket-scoped roles",
+    "verified_tests": ["S04", "S05", "S06", "S07", "S08", "S09", "S12"]
+  }
+]

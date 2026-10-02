@@ -1,0 +1,15 @@
+NAME                                STATUS   AGE
+bd-g05                              Active   17h
+default                             Active   18h
+gke-managed-cim                     Active   18h
+gke-managed-networking-dra-driver   Active   18h
+gke-managed-system                  Active   18h
+gke-managed-volumepopulator         Active   18h
+gmp-public                          Active   18h
+gmp-system                          Active   18h
+kube-node-lease                     Active   18h
+kube-public                         Active   18h
+kube-system                         Active   18h
+seaweedfs                           Active   18h
+N04: PENDING / INCONCLUSIVE
+Reason: designated outsider fixture is not present in the cluster.

@@ -1,0 +1,200 @@
+apiVersion: v1
+items:
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "4"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"objects","namespace":"bd-g05"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"objects"}},"strategy":{"type":"Recreate"},"template":{"metadata":{"labels":{"app":"objects"}},"spec":{"containers":[{"args":["mini","-dir=/data","-s3.config=/auth/s3.json"],"command":["weed"],"image":"chrislusf/seaweedfs:latest","name":"store","ports":[{"containerPort":8333,"name":"s3"}],"readinessProbe":{"initialDelaySeconds":5,"periodSeconds":3,"tcpSocket":{"port":"s3"}},"resources":{"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"500m","memory":"512Mi"}},"volumeMounts":[{"mountPath":"/data","name":"data"},{"mountPath":"/auth","name":"auth","readOnly":true}]}],"volumes":[{"name":"data","persistentVolumeClaim":{"claimName":"object-data"}},{"name":"auth","secret":{"secretName":"s3-config"}}]}}}}
+    creationTimestamp: "2026-10-02T07:12:07Z"
+    generation: 4
+    name: objects
+    namespace: bd-g05
+    resourceVersion: "1790956114499695017"
+    uid: a8f5e0ce-f1a6-402a-94f6-8013cab2067c
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: objects
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2026-10-02T15:48:21Z"
+        labels:
+          app: objects
+      spec:
+        containers:
+        - args:
+          - mini
+          - -dir=/data
+          - -s3.config=/auth/s3.json
+          command:
+          - weed
+          image: chrislusf/seaweedfs:latest
+          imagePullPolicy: Always
+          name: store
+          ports:
+          - containerPort: 8333
+            name: s3
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 5
+            periodSeconds: 3
+            successThreshold: 1
+            tcpSocket:
+              port: s3
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1Gi
+            requests:
+              cpu: 500m
+              memory: 512Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /data
+            name: data
+          - mountPath: /auth
+            name: auth
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: object-data
+        - name: auth
+          secret:
+            defaultMode: 420
+            secretName: s3-config
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-10-02T15:48:34Z"
+      lastUpdateTime: "2026-10-02T15:48:34Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2026-10-02T07:12:07Z"
+      lastUpdateTime: "2026-10-02T15:48:34Z"
+      message: ReplicaSet "objects-f75f7f7b4" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 4
+    readyReplicas: 1
+    replicas: 1
+    terminatingReplicas: 0
+    updatedReplicas: 1
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"objects","namespace":"bd-g05"},"spec":{"ports":[{"name":"s3","port":8333,"targetPort":"s3"}],"selector":{"app":"objects"},"type":"ClusterIP"}}
+    creationTimestamp: "2026-10-02T05:26:47Z"
+    name: objects
+    namespace: bd-g05
+    resourceVersion: "1790918807412895023"
+    uid: 5a97d866-3474-4cca-82c6-2567a01ff362
+  spec:
+    clusterIP: 34.118.238.72
+    clusterIPs:
+    - 34.118.238.72
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: s3
+      port: 8333
+      protocol: TCP
+      targetPort: s3
+    selector:
+      app: objects
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"PersistentVolumeClaim","metadata":{"annotations":{},"name":"object-data","namespace":"bd-g05"},"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"4Gi"}}}}
+      pv.kubernetes.io/bind-completed: "yes"
+      pv.kubernetes.io/bound-by-controller: "yes"
+      volume.beta.kubernetes.io/storage-provisioner: pd.csi.storage.gke.io
+      volume.kubernetes.io/selected-node: gke-lab-cluster-default-pool-81c23bbf-qdrw
+      volume.kubernetes.io/storage-provisioner: pd.csi.storage.gke.io
+    creationTimestamp: "2026-10-02T07:12:06Z"
+    finalizers:
+    - kubernetes.io/pvc-protection
+    name: object-data
+    namespace: bd-g05
+    resourceVersion: "1790925128589935002"
+    uid: f9471ae5-94fc-485d-8ce9-d547a38d52e0
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 4Gi
+    storageClassName: standard-rwo
+    volumeMode: Filesystem
+    volumeName: pvc-f9471ae5-94fc-485d-8ce9-d547a38d52e0
+  status:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 4Gi
+    phase: Bound
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"PersistentVolumeClaim","metadata":{"annotations":{},"name":"object-data-v4","namespace":"bd-g05"},"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"1Gi"}}}}
+      pv.kubernetes.io/bind-completed: "yes"
+      pv.kubernetes.io/bound-by-controller: "yes"
+      volume.beta.kubernetes.io/storage-provisioner: pd.csi.storage.gke.io
+      volume.kubernetes.io/selected-node: gke-lab-cluster-default-pool-81c23bbf-lc6t
+      volume.kubernetes.io/storage-provisioner: pd.csi.storage.gke.io
+    creationTimestamp: "2026-10-02T06:35:27Z"
+    finalizers:
+    - kubernetes.io/pvc-protection
+    name: object-data-v4
+    namespace: bd-g05
+    resourceVersion: "1790922930988175013"
+    uid: 1bd2c38f-8d6f-45fe-915e-9531116a2de1
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 1Gi
+    storageClassName: standard-rwo
+    volumeMode: Filesystem
+    volumeName: pvc-1bd2c38f-8d6f-45fe-915e-9531116a2de1
+  status:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 1Gi
+    phase: Bound
+kind: List
+metadata:
+  resourceVersion: ""

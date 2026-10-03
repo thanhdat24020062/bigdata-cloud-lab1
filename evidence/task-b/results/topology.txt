@@ -1,0 +1,16 @@
+NAME                          READY   STATUS    RESTARTS   AGE   IP           NODE                                         NOMINATED NODE   READINESS GATES
+pod/analyst                   1/1     Running   0          15s   10.76.0.45   gke-lab-cluster-default-pool-81c23bbf-lc6t   <none>           <none>
+pod/blocked                   1/1     Running   0          14s   10.76.0.46   gke-lab-cluster-default-pool-81c23bbf-lc6t   <none>           <none>
+pod/ingestor                  1/1     Running   0          15s   10.76.0.44   gke-lab-cluster-default-pool-81c23bbf-lc6t   <none>           <none>
+pod/objects-f75f7f7b4-2gfpk   1/1     Running   0          28s   10.76.1.43   gke-lab-cluster-default-pool-81c23bbf-qdrw   <none>           <none>
+pod/owner                     1/1     Running   0          16s   10.76.0.43   gke-lab-cluster-default-pool-81c23bbf-lc6t   <none>           <none>
+
+NAME                                   STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE   VOLUMEMODE
+persistentvolumeclaim/object-data      Bound    pvc-f9471ae5-94fc-485d-8ce9-d547a38d52e0   4Gi        RWO            standard-rwo   <unset>                 8h    Filesystem
+persistentvolumeclaim/object-data-v4   Bound    pvc-1bd2c38f-8d6f-45fe-915e-9531116a2de1   1Gi        RWO            standard-rwo   <unset>                 9h    Filesystem
+
+NAME              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE   SELECTOR
+service/objects   ClusterIP   34.118.238.72   <none>        8333/TCP   10h   app=objects
+
+NAME                                           ADDRESSTYPE   PORTS   ENDPOINTS    AGE
+endpointslice.discovery.k8s.io/objects-9j2wk   IPv4          8333    10.76.1.43   10h

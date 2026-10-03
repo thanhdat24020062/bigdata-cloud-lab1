@@ -1,0 +1,19 @@
+=== ResourceQuota ===
+NAME          REQUEST                                                                                                                LIMIT                                            AGE
+team-budget   persistentvolumeclaims: 2/2, pods: 6/10, requests.cpu: 800m/2, requests.memory: 896Mi/2Gi, requests.storage: 5Gi/8Gi   limits.cpu: 2300m/4, limits.memory: 2560Mi/4Gi   45h
+
+=== ResourceQuota detail ===
+Name:                   team-budget
+Namespace:              bd-g05
+Resource                Used    Hard
+--------                ----    ----
+limits.cpu              2300m   4
+limits.memory           2560Mi  4Gi
+persistentvolumeclaims  2       2
+pods                    6       10
+requests.cpu            800m    2
+requests.memory         896Mi   2Gi
+requests.storage        5Gi     8Gi
+
+=== Server-side dry-run quota test ===
+Error from server (Forbidden): error when creating "manifests/task-a/quota-test-pvc.yaml": persistentvolumeclaims "quota-test-pvc" is forbidden: exceeded quota: team-budget, requested: persistentvolumeclaims=1, used: persistentvolumeclaims=2, limited: persistentvolumeclaims=2

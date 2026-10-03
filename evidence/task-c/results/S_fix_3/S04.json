@@ -1,0 +1,1 @@
+{"bucket": "research-release", "bytes": 0, "error": "AccessDenied", "http": 403, "key": "s04.txt", "ms": 92.9300390125718, "ok": false, "op": "put", "principal": "ingestor", "request_id": "18DAC57F3E3E89D5A2718C99", "utc": "2026-10-02T17:09:12.211873+00:00"}

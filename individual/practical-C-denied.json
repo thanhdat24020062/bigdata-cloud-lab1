@@ -1,0 +1,2 @@
+{"bucket": "research-raw", "bytes": 0, "error": "AccessDenied", "http": 403, "key": "fixture.txt", "ms": 92.61913498630747, "ok": false, "op": "get", "principal": "analyst", "request_id": "18DB0B63765C0D2830E8CF73", "utc": "2026-10-03T14:29:58.645264+00:00"}
+command terminated with exit code 2

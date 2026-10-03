@@ -1,0 +1,207 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      cloud.google.com/cluster_autoscaler_unhelpable_since: 2026-10-03T09:06:23+0000
+      cloud.google.com/cluster_autoscaler_unhelpable_until: Inf
+      cni.projectcalico.org/containerID: 0d98c2a86cfbb5165f69355d77dec6a06413c6c64ae122b2b84491184c96ca2f
+      cni.projectcalico.org/podIP: 10.76.1.46/32
+      cni.projectcalico.org/podIPs: 10.76.1.46/32
+      kubectl.kubernetes.io/restartedAt: "2026-10-02T17:05:32Z"
+    creationTimestamp: "2026-10-03T09:06:22Z"
+    generateName: objects-c55b59f89-
+    generation: 1
+    labels:
+      app: objects
+      pod-template-hash: c55b59f89
+      topology.kubernetes.io/region: asia-southeast1
+      topology.kubernetes.io/zone: asia-southeast1-a
+    name: objects-c55b59f89-qdwsp
+    namespace: bd-g05
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: objects-c55b59f89
+      uid: cf31a609-9bb9-4ae2-926b-3a54e07d10fc
+    resourceVersion: "1791018392227615017"
+    uid: 9086666b-85ee-4a6c-82a6-c91aa7cf2173
+  spec:
+    containers:
+    - args:
+      - mini
+      - -dir=/data
+      - -s3.config=/auth/s3.json
+      command:
+      - weed
+      image: chrislusf/seaweedfs:latest
+      imagePullPolicy: Always
+      name: store
+      ports:
+      - containerPort: 8333
+        name: s3
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        initialDelaySeconds: 5
+        periodSeconds: 3
+        successThreshold: 1
+        tcpSocket:
+          port: s3
+        timeoutSeconds: 1
+      resources:
+        limits:
+          cpu: "1"
+          memory: 1Gi
+        requests:
+          cpu: 500m
+          memory: 512Mi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /data
+        name: data
+      - mountPath: /auth
+        name: auth
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-s9kw5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: gke-lab-cluster-default-pool-81c23bbf-qdrw
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: data
+      persistentVolumeClaim:
+        claimName: object-data
+    - name: auth
+      secret:
+        defaultMode: 420
+        secretName: s3-config
+    - name: kube-api-access-s9kw5
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-03T09:06:28Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-03T09:06:26Z"
+      observedGeneration: 1
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-03T09:06:32Z"
+      observedGeneration: 1
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-03T09:06:32Z"
+      observedGeneration: 1
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-03T09:06:26Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - allocatedResources:
+        cpu: 500m
+        memory: 512Mi
+      containerID: containerd://92891d42c12dd216fd3851c1097b5393a1c1e160fcb5e5d9432a33e513696f20
+      image: docker.io/chrislusf/seaweedfs:latest
+      imageID: docker.io/chrislusf/seaweedfs@sha256:4e61d15fd35994cb1e43e1e553dff106794841fd9a99ade2fc8c8bfce4d7872d
+      lastState: {}
+      name: store
+      ready: true
+      resources:
+        limits:
+          cpu: "1"
+          memory: 1Gi
+        requests:
+          cpu: 500m
+          memory: 512Mi
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2026-10-03T09:06:27Z"
+      user:
+        linux:
+          gid: 0
+          supplementalGroups:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 6
+          - 10
+          - 11
+          - 20
+          - 26
+          - 27
+          uid: 0
+      volumeMounts:
+      - mountPath: /data
+        name: data
+      - mountPath: /auth
+        name: auth
+        readOnly: true
+        recursiveReadOnly: Disabled
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-s9kw5
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 10.148.0.4
+    hostIPs:
+    - ip: 10.148.0.4
+    observedGeneration: 1
+    phase: Running
+    podIP: 10.76.1.46
+    podIPs:
+    - ip: 10.76.1.46
+    qosClass: Burstable
+    startTime: "2026-10-03T09:06:26Z"
+kind: List
+metadata:
+  resourceVersion: ""

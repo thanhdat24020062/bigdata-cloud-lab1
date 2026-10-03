@@ -1,16 +1,16 @@
 [
- {"bucket":"research-raw","owner":"student-A","steward":"student-E",
+ {"bucket":"research-raw","owner":"24020323","steward":"24020044",
   "classification":"synthetic-restricted","purpose":"lab ingestion",
   "retention":"assessment completion + 7 days (intended cleanup 2026-10-17)",
   "retention_enforced":false,"cleanup_owner":"instructor",
   "access_policy":"bucket-scoped roles",
   "verified_tests":["S01","S02","S03","S10","S11"],
-  "approved_by":"student-C","policy_revision":"470621d"},
- {"bucket":"research-release","owner":"student-A","steward":"student-E",
+  "approved_by":"24020062","policy_revision":"470621d"},
+ {"bucket":"research-release","owner":"24020323","steward":"24020044",
   "classification":"synthetic-approved","purpose":"approved release reads",
   "retention":"assessment completion + 7 days (intended cleanup 2026-10-17)",
   "retention_enforced":false,"cleanup_owner":"instructor",
   "access_policy":"bucket-scoped roles",
   "verified_tests":["S06","S07","S08","S09","S12"],
-  "approved_by":"student-C","policy_revision":"470621d"}
+  "approved_by":"24020062","policy_revision":"470621d"}
 ]

@@ -14,3 +14,10 @@ venv/
 .DS_Store
 .vscode/
 .idea/
+
+# Credentials (lab requires these stay out of Git and the submission)
+*.env
+s3.json
+observer.json
+kubeconfig*
+*.kubeconfig

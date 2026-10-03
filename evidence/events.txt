@@ -1,0 +1,11 @@
+LAST SEEN   TYPE      REASON              OBJECT                         MESSAGE
+74s         Normal    Killing             pod/objects-c55b59f89-b47q2    Stopping container store
+72s         Warning   Unhealthy           pod/objects-c55b59f89-b47q2    Readiness probe failed: dial tcp 10.76.1.47:8333: connect: connection refused
+74s         Warning   FailedScheduling    pod/objects-c55b59f89-nqf4f    0/2 nodes are available: 2 Insufficient cpu. no new claims to deallocate, preemption: 0/2 nodes are available: 2 No preemption victims found for incoming pod.
+74s         Normal    NotTriggerScaleUp   pod/objects-c55b59f89-nqf4f    Pod didn't trigger scale-up:
+70s         Normal    Scheduled           pod/objects-c55b59f89-nqf4f    Successfully assigned bd-g05/objects-c55b59f89-nqf4f to gke-lab-cluster-default-pool-81c23bbf-qdrw
+70s         Normal    Pulling             pod/objects-c55b59f89-nqf4f    Pulling image "chrislusf/seaweedfs:latest"
+69s         Normal    Pulled              pod/objects-c55b59f89-nqf4f    Successfully pulled image "chrislusf/seaweedfs:latest" in 311ms (311ms including waiting). Image size: 193574240 bytes.
+69s         Normal    Created             pod/objects-c55b59f89-nqf4f    Container created
+69s         Normal    Started             pod/objects-c55b59f89-nqf4f    Container started
+74s         Normal    SuccessfulCreate    replicaset/objects-c55b59f89   Created pod: objects-c55b59f89-nqf4f

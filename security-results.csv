@@ -1,0 +1,23 @@
+test_id,principal_context,target,expected,actual,result,operator,reviewer,evidence_path
+S01,ingestor,research-raw/raw/s01.txt PUT,HTTP 200 allow,HTTP 200,PASS,Dat,TBD,evidence/task-c/results/S01.json
+S02,ingestor,research-raw/raw/s01.txt GET,HTTP 200 allow,HTTP 200,PASS,Dat,TBD,evidence/task-c/results/S02.json
+S03,ingestor,research-raw LIST,HTTP 200 allow,HTTP 200,PASS,Dat,TBD,evidence/task-c/results/S03.json
+S04,ingestor,research-release/s04.txt PUT,HTTP 403 AccessDenied,HTTP 403 AccessDenied,PASS,Dat,TBD,evidence/task-c/results/S04.json
+S05,ingestor,research-release/fixture.txt GET,HTTP 403 AccessDenied,HTTP 403 AccessDenied,PASS,Dat,TBD,evidence/task-c/results/S05.json
+S06,analyst,research-release/fixture.txt GET,HTTP 200 allow,HTTP 200,PASS,Dat,TBD,evidence/task-c/results/S06.json
+S07,analyst,research-release LIST,HTTP 200 allow,HTTP 200,PASS,Dat,TBD,evidence/task-c/results/S07.json
+S08,analyst,research-release/s08.txt PUT,HTTP 403 AccessDenied,HTTP 403 AccessDenied,PASS,Dat,TBD,evidence/task-c/results/S08.json
+S09,analyst,research-release/delete-probe DELETE,HTTP 403 AccessDenied,HTTP 403 AccessDenied,PASS,Dat,TBD,evidence/task-c/results/S09.json
+S10,analyst,research-raw/fixture.txt GET,HTTP 403 AccessDenied,HTTP 403 AccessDenied,PASS,Dat,TBD,evidence/task-c/results/S10.json
+S11,analyst,research-raw LIST,HTTP 403 AccessDenied,HTTP 403 AccessDenied,PASS,Dat,TBD,evidence/task-c/results/S11.json
+S12,anonymous,research-release/fixture.txt GET,HTTP 403 AccessDenied,HTTP 403 AccessDenied,PASS,Dat,TBD,evidence/task-c/results/S12.json
+K01,system:serviceaccount:bd-g05:observer,list pods in bd-g05,allow,pod list returned,PASS,Dat,TBD,evidence/task-c/results/K01.txt
+K02,system:serviceaccount:bd-g05:observer,get events in bd-g05,allow,event list returned,PASS,Dat,TBD,evidence/task-c/results/K02.txt
+K03,system:serviceaccount:bd-g05:observer,get logs of storage pod,allow,SeaweedFS logs returned,PASS,Dat,TBD,evidence/task-c/results/K03.txt
+K04,system:serviceaccount:bd-g05:observer,get secret s3-config,deny Forbidden,Forbidden,PASS,Dat,TBD,evidence/task-c/results/K04.txt
+K05,system:serviceaccount:bd-g05:observer,create pod server dry-run,deny Forbidden,Forbidden,PASS,Dat,TBD,evidence/task-c/results/K05.txt
+K06,system:serviceaccount:bd-g05:observer,delete storage pod server dry-run,deny Forbidden,Forbidden,PASS,Dat,TBD,evidence/task-c/results/K06.txt
+N01,owner pod (access=s3),objects service TCP/8333,allow TCP connection,tcp_connected=true,PASS,Dat,TBD,evidence/task-c/results/N01.json
+N02,blocked pod (no access=s3),objects service TCP/8333,block TCP connection,tcp_connected=false,PASS,Dat,TBD,evidence/task-c/results/N02.json
+N03,owner pod,storage Pod IP TCP/8888,block TCP connection,tcp_connected=false,PASS,Dat,TBD,evidence/task-c/results/N03.json
+N04,outsider-probe in bd-g05-outsider,objects.bd-g05.svc.cluster.local TCP/8333,block TCP connection,tcp_connected=false,PASS,Dat,TBD,evidence/task-c/results/N04.json

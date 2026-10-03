@@ -1,0 +1,1 @@
+{"bucket": "research-release", "bytes": 0, "error": "AccessDenied", "http": 403, "key": "s08.txt", "ms": 97.97119899303652, "ok": false, "op": "put", "principal": "analyst", "request_id": "18DAC58323065305E2D4F5D1", "utc": "2026-10-02T17:09:28.857568+00:00"}

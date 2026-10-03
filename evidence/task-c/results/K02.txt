@@ -1,0 +1,12 @@
+LAST SEEN   TYPE      REASON              OBJECT                          MESSAGE
+9m14s       Normal    Killing             pod/objects-6fdf76cbfc-ph2gl    Stopping container store
+9m12s       Warning   Unhealthy           pod/objects-6fdf76cbfc-ph2gl    Readiness probe failed: dial tcp 10.76.1.40:8333: connect: connection refused
+9m14s       Normal    SuccessfulDelete    replicaset/objects-6fdf76cbfc   Deleted pod: objects-6fdf76cbfc-ph2gl
+9m11s       Normal    Scheduled           pod/objects-84648f77d5-p4mrn    Successfully assigned bd-g05/objects-84648f77d5-p4mrn to gke-lab-cluster-default-pool-81c23bbf-qdrw
+9m9s        Normal    Pulling             pod/objects-84648f77d5-p4mrn    Pulling image "chrislusf/seaweedfs:latest"
+9m8s        Normal    Pulled              pod/objects-84648f77d5-p4mrn    Successfully pulled image "chrislusf/seaweedfs:latest" in 1.487s (1.487s including waiting). Image size: 193574240 bytes.
+9m8s        Normal    Created             pod/objects-84648f77d5-p4mrn    Container created
+9m7s        Normal    Started             pod/objects-84648f77d5-p4mrn    Container started
+9m11s       Normal    SuccessfulCreate    replicaset/objects-84648f77d5   Created pod: objects-84648f77d5-p4mrn
+9m14s       Normal    ScalingReplicaSet   deployment/objects              Scaled down replica set objects-6fdf76cbfc from 1 to 0
+9m11s       Normal    ScalingReplicaSet   deployment/objects              Scaled up replica set objects-84648f77d5 from 0 to 1

@@ -1,0 +1,1 @@
+{"bucket": "research-raw", "bytes": 0, "error": "AccessDenied", "http": 403, "key": "raw/s01.txt", "ms": 92.61324500403134, "ok": false, "op": "get", "principal": "ingestor", "request_id": "18DAAC8F9DF071B680F7099F", "utc": "2026-10-02T09:32:14.715927+00:00"}

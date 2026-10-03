@@ -1,1 +1,1 @@
-{"bucket": "research-release", "bytes": 0, "error": "AccessDenied", "http": 403, "key": "auth-probe.txt", "ms": 81.3182280107867, "ok": false, "op": "put", "principal": "analyst", "request_id": "18DAFA44DDCE53482D9F66CF", "utc": "2026-10-03T09:16:15.524366+00:00"}
+{"bucket": "research-release", "bytes": 0, "error": "AccessDenied", "http": 403, "key": "auth-probe.txt", "ms": 95.01095602172427, "ok": false, "op": "put", "principal": "analyst", "request_id": "18DAFE69F98EE5E278E75B4C", "utc": "2026-10-03T10:32:12.950892+00:00"}

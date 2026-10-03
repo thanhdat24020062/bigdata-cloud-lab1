@@ -1,0 +1,10 @@
+    Lance Namespace: http://10.76.1.48:9101
+    Admin UI:        http://10.76.1.48:23646
+
+  Data Directory:   /data
+  Free Space:       3.09 GiB
+  Volume Size:      64.00 MiB
+  Volume Count:     61
+  Free Volumes:     15
+
+  Press Ctrl+C to stop all components

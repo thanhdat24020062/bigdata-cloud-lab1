@@ -4,13 +4,13 @@ items:
   kind: Pod
   metadata:
     annotations:
-      cloud.google.com/cluster_autoscaler_unhelpable_since: 2026-10-03T09:06:23+0000
+      cloud.google.com/cluster_autoscaler_unhelpable_since: 2026-10-03T09:11:15+0000
       cloud.google.com/cluster_autoscaler_unhelpable_until: Inf
-      cni.projectcalico.org/containerID: 0d98c2a86cfbb5165f69355d77dec6a06413c6c64ae122b2b84491184c96ca2f
-      cni.projectcalico.org/podIP: 10.76.1.46/32
-      cni.projectcalico.org/podIPs: 10.76.1.46/32
+      cni.projectcalico.org/containerID: 3d36919beedce4138832296af4e534b603566242788d1a6bd2bfa8fa73a33b34
+      cni.projectcalico.org/podIP: 10.76.1.47/32
+      cni.projectcalico.org/podIPs: 10.76.1.47/32
       kubectl.kubernetes.io/restartedAt: "2026-10-02T17:05:32Z"
-    creationTimestamp: "2026-10-03T09:06:22Z"
+    creationTimestamp: "2026-10-03T09:11:14Z"
     generateName: objects-c55b59f89-
     generation: 1
     labels:
@@ -18,7 +18,7 @@ items:
       pod-template-hash: c55b59f89
       topology.kubernetes.io/region: asia-southeast1
       topology.kubernetes.io/zone: asia-southeast1-a
-    name: objects-c55b59f89-qdwsp
+    name: objects-c55b59f89-b47q2
     namespace: bd-g05
     ownerReferences:
     - apiVersion: apps/v1
@@ -27,8 +27,8 @@ items:
       kind: ReplicaSet
       name: objects-c55b59f89
       uid: cf31a609-9bb9-4ae2-926b-3a54e07d10fc
-    resourceVersion: "1791018392227615017"
-    uid: 9086666b-85ee-4a6c-82a6-c91aa7cf2173
+    resourceVersion: "1791018685440511000"
+    uid: 7d38e28d-7cfd-4c65-8895-6e0d00af5a32
   spec:
     containers:
     - args:
@@ -68,7 +68,7 @@ items:
         name: auth
         readOnly: true
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: kube-api-access-s9kw5
+        name: kube-api-access-jfkt4
         readOnly: true
     dnsPolicy: ClusterFirst
     enableServiceLinks: true
@@ -98,7 +98,7 @@ items:
       secret:
         defaultMode: 420
         secretName: s3-config
-    - name: kube-api-access-s9kw5
+    - name: kube-api-access-jfkt4
       projected:
         defaultMode: 420
         sources:
@@ -119,27 +119,27 @@ items:
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2026-10-03T09:06:28Z"
+      lastTransitionTime: "2026-10-03T09:11:20Z"
       observedGeneration: 1
       status: "True"
       type: PodReadyToStartContainers
     - lastProbeTime: null
-      lastTransitionTime: "2026-10-03T09:06:26Z"
+      lastTransitionTime: "2026-10-03T09:11:17Z"
       observedGeneration: 1
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2026-10-03T09:06:32Z"
+      lastTransitionTime: "2026-10-03T09:11:25Z"
       observedGeneration: 1
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2026-10-03T09:06:32Z"
+      lastTransitionTime: "2026-10-03T09:11:25Z"
       observedGeneration: 1
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2026-10-03T09:06:26Z"
+      lastTransitionTime: "2026-10-03T09:11:17Z"
       observedGeneration: 1
       status: "True"
       type: PodScheduled
@@ -147,7 +147,7 @@ items:
     - allocatedResources:
         cpu: 500m
         memory: 512Mi
-      containerID: containerd://92891d42c12dd216fd3851c1097b5393a1c1e160fcb5e5d9432a33e513696f20
+      containerID: containerd://59adda637f6fc2b4637f7af796f6d4d764d1035e47baef84d04200f26f1a6cac
       image: docker.io/chrislusf/seaweedfs:latest
       imageID: docker.io/chrislusf/seaweedfs@sha256:4e61d15fd35994cb1e43e1e553dff106794841fd9a99ade2fc8c8bfce4d7872d
       lastState: {}
@@ -164,7 +164,7 @@ items:
       started: true
       state:
         running:
-          startedAt: "2026-10-03T09:06:27Z"
+          startedAt: "2026-10-03T09:11:20Z"
       user:
         linux:
           gid: 0
@@ -189,7 +189,7 @@ items:
         readOnly: true
         recursiveReadOnly: Disabled
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: kube-api-access-s9kw5
+        name: kube-api-access-jfkt4
         readOnly: true
         recursiveReadOnly: Disabled
     hostIP: 10.148.0.4
@@ -197,11 +197,11 @@ items:
     - ip: 10.148.0.4
     observedGeneration: 1
     phase: Running
-    podIP: 10.76.1.46
+    podIP: 10.76.1.47
     podIPs:
-    - ip: 10.76.1.46
+    - ip: 10.76.1.47
     qosClass: Burstable
-    startTime: "2026-10-03T09:06:26Z"
+    startTime: "2026-10-03T09:11:17Z"
 kind: List
 metadata:
   resourceVersion: ""

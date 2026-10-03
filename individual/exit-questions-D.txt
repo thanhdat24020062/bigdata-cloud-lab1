@@ -1,0 +1,9 @@
+1. Did performance improve or degrade at Concurrency=4 compared to Concurrency=1?
+- Trả lời: Hiệu năng bị giảm đi (degrade) khi tăng Concurrency lên 4.
+
+2. Evidence (Bằng chứng số liệu):
+- Ở pha PUT: Concurrency 1 đạt tốc độ ~21.1 - 21.7 MiB/s (độ trễ p95 ~216 - 252ms). Khi tăng lên Concurrency 4, tốc độ giảm xuống chỉ còn ~17.1 - 17.9 MiB/s và độ trễ tăng vọt lên ~1104 - 1195ms.
+- Ở pha GET: Tốc độ cũng giảm từ ~33-35 MiB/s (c=1) xuống còn ~26-28 MiB/s (c=4), độ trễ tăng từ ~60-90ms lên ~300-358ms.
+
+3. Nguyên nhân (Bottleneck):
+- Nguyên nhân chính là do hệ thống bị nghẽn tài nguyên (CPU throttling) giới hạn ở mức 1000m (1 core). Khi ép chạy 4 luồng đồng thời, các luồng phải tranh chấp CPU dẫn đến xử lý chậm hơn và làm tăng độ trễ đáng kể.

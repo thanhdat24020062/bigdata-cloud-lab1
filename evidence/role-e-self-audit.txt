@@ -1,0 +1,111 @@
+
+=== A. Cấu trúc bundle (mục 10 của đề) ===
+[PASS] Có README.md ở root
+[WARN] Thiếu policies-redacted.json (của người khác thì cần đôn đốc)
+[PASS] Có governance.json ở root
+[WARN] Thiếu security-results.csv (của người khác thì cần đôn đốc)
+[WARN] Thiếu benchmark-summary.csv (của người khác thì cần đôn đốc)
+[PASS] Có recovery-summary.json ở root
+[WARN] Thiếu contribution.csv (của người khác thì cần đôn đốc)
+[FAIL] manifests/ không có file nào (chỉ rỗng/.gitkeep)
+[PASS] evidence/ có 20 file
+[PASS] individual/ có 1 file
+[WARN] Thư mục rỗng (điền nội dung hoặc xóa): ['manifests/task-a', 'manifests/task-d', 'manifests/task-c', 'manifests/task-b', 'manifests/task-e', 'report', 'evidence/task-a/screenshots', 'evidence/task-a/logs', 'evidence/task-a/results', 'evidence/task-d/screenshots', 'evidence/task-d/logs', 'evidence/task-d/results', 'evidence/task-c/screenshots', 'evidence/task-c/logs', 'evidence/task-c/results', 'evidence/task-b/screenshots', 'evidence/task-b/logs', 'evidence/task-b/results', 'evidence/task-e/screenshots', 'evidence/task-e/logs', 'evidence/task-e/results', 'governance']
+
+=== B. Task 5 – evidence recovery ===
+[PASS] pod-before.yaml OK
+[PASS] pvc-before.yaml OK
+[PASS] canary.jsonl OK
+[PASS] delete-time.txt OK
+[PASS] pod-after.yaml OK
+[PASS] pvc-after.yaml OK
+[PASS] before-recovery.jsonl OK
+[PASS] after-recovery.jsonl OK
+[PASS] events.txt OK
+[PASS] pod-logs.txt OK
+[PASS] Pod UID đổi (7d38e28d → e33cb152)
+[PASS] PVC UID giữ nguyên (f9471ae5)
+[PASS] pvc-before.yaml: Bound
+[PASS] pvc-after.yaml: Bound
+[PASS] Node trước/sau: gke-lab-cluster-default-pool-81c23bbf-qdrw → gke-lab-cluster-default-pool-81c23bbf-qdrw
+[PASS] pod-after có imageID digest thật
+[PASS] before-recovery.jsonl: 32/32 hash đúng + 'verified'
+[PASS] after-recovery.jsonl: 32/32 hash đúng + 'verified'
+[PASS] Hash từng object trước = sau recovery
+[PASS] delete-time.txt đúng định dạng ISO
+[PASS] events.txt có sự kiện thay Pod
+
+=== C. Canary + recovery-summary.json ===
+[PASS] Canary: 172 mẫu, 13 lần fail
+[PASS] T_observed tự tính = 19.29s (t_failure=19.72, t_stable=39.01, 13 read fail)
+[PASS] recovery-summary: không còn null
+[PASS] sampling_limit đã mô tả
+[PASS] pod_uid_changed=true
+[PASS] pvc_uid_unchanged=true
+[PASS] verified_before/after = 32
+[PASS] policy_retests có S06,S08,S10
+[PASS] unproven nêu HA/backup/node-loss
+[PASS] observed_interruption_s khớp số tính lại
+[PASS] first_failure_start_s khớp
+
+=== D. Retest sau recovery + independent check (verify B) ===
+[PASS] S06: allow, HTTP 200
+[PASS] S06: principal=analyst
+[PASS] S08: deny đúng (403 AccessDenied)
+[PASS] S08: principal=analyst
+[PASS] S10: deny đúng (403 AccessDenied)
+[PASS] S10: principal=analyst
+[PASS] E-hash-check-raw.json: có SHA-256 fixture đúng
+[PASS] E-hash-check-release.json: có SHA-256 fixture đúng
+[PASS] pvc-binding-check: Bound
+[PASS] pvc-binding-check: có volumeName
+[PASS] pvc-binding-check: có StorageClass
+[PASS] topology.txt nhắc PVC object-data
+
+=== E. governance.json ===
+[PASS] Có record cho cả 2 bucket
+[PASS] [research-raw] đủ 12 trường
+[PASS] [research-raw] retention_enforced=false
+[PASS] [research-raw] policy_revision dạng hash
+[PASS] [research-raw] commit 470621d tồn tại trong git
+[PASS] [research-raw] owner=student-A
+[PASS] [research-raw] steward=student-E
+[PASS] [research-raw] approved_by=student-C
+[PASS] [research-raw] ngày cleanup 2026-10-17 ở tương lai (nhớ xác nhận = hết chấm + 7 ngày)
+[WARN] [research-raw] chưa có security-results.csv để đối chiếu verified_tests (chờ C)
+[PASS] [research-release] đủ 12 trường
+[PASS] [research-release] retention_enforced=false
+[PASS] [research-release] policy_revision dạng hash
+[PASS] [research-release] commit 470621d tồn tại trong git
+[PASS] [research-release] owner=student-A
+[PASS] [research-release] steward=student-E
+[PASS] [research-release] approved_by=student-C
+[PASS] [research-release] ngày cleanup 2026-10-17 ở tương lai (nhớ xác nhận = hết chấm + 7 ngày)
+[WARN] [research-release] chưa có security-results.csv để đối chiếu verified_tests (chờ C)
+
+=== F. README / evidence index / contribution / individual ===
+[FAIL] README 59 từ – ngoài 300–500
+[WARN] README thiếu phần design/limitations
+[PASS] Index (evidence/INDEX.md) liệt kê hết evidence
+[PASS] Index không còn TODO
+[WARN] Chưa có contribution.csv
+[WARN] individual/ mới có 1/5 file (đề: 5 kết quả độc lập)
+[PASS] Individual E nhắc t_failure
+[PASS] Individual E nhắc t_stable
+[PASS] Individual E nhắc PVC UID
+[PASS] Individual E nhắc ngưỡng 120s
+[PASS] Individual E nêu giới hạn bằng chứng (backup/HA/node)
+
+=== G. Git + credential ===
+[WARN] Chưa commit:
+    M recovery-summary.json
+    ?? evidence/INDEX.md
+    ?? evidence/role-e-self-audit.txt
+    ?? governance.json
+    ?? scripts/audit_role_e.py
+[WARN] Không xác định được upstream (đã git push -u chưa?)
+[PASS] Git không track file nhạy cảm
+[PASS] Không có file nhạy cảm theo tên
+[PASS] Không thấy pattern credential trong file text (PDF cần tự soát bằng mắt)
+
+===== TỔNG KẾT: 76 PASS | 12 WARN | 2 FAIL =====

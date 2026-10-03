@@ -1,0 +1,5 @@
+analyst	827fe536-4cde-41bd-b399-9bb725e7c607	gcr.io/bigdata-lab1-510310/s3-client@sha256:6e99fa2e0456d9b84f3e4187bc32af8f37a77391760b74ef14a9561ebab5760a
+blocked	b9a56be8-bf7f-4f56-8cb7-ea9f8e23d68f	gcr.io/bigdata-lab1-510310/s3-client@sha256:6e99fa2e0456d9b84f3e4187bc32af8f37a77391760b74ef14a9561ebab5760a
+ingestor	75ab48ea-1c01-4a23-a9a7-2d2e7c86659c	gcr.io/bigdata-lab1-510310/s3-client@sha256:6e99fa2e0456d9b84f3e4187bc32af8f37a77391760b74ef14a9561ebab5760a
+objects-f75f7f7b4-2gfpk	6385fe14-bb22-443d-b988-61709f254324	docker.io/chrislusf/seaweedfs@sha256:4e61d15fd35994cb1e43e1e553dff106794841fd9a99ade2fc8c8bfce4d7872d
+owner	4a0a11cc-311b-4668-bd04-cefe9f9337bd	gcr.io/bigdata-lab1-510310/s3-client@sha256:6e99fa2e0456d9b84f3e4187bc32af8f37a77391760b74ef14a9561ebab5760a
